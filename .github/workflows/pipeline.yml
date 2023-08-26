@@ -2,17 +2,16 @@ name: Python Pipeline
 on: push
 
 jobs:
-  test:
+  RunPythonScript:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: python hello.py
-  build:
-    needs: [test]
-    runs-on: ubuntu-latest
-    steps:    
+  RunPowerShellScript:
+    runs-on: windows-latest
+    steps:
       - uses: actions/checkout@v2
-      - uses: actions/upload-artifact@v2
-        with:
-          name: hello
-          path: .
+      - run: '& $env:GITHUB_ACTION_PATH/hello.ps1'
+        shell: powershell
+  
+
