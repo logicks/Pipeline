@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: '& $env:GITHUB_ACTION_PATH/hello.ps1'
+      - run: '& hello.ps1'
         shell: powershell
   
 
